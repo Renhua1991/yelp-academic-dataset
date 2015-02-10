@@ -1,8 +1,9 @@
 import json
+import collections
 
 f1=open("businessObjects.json")
 f2=open("reviews.json")
-f3=open("user_location.json","w")
+f3=open("user_location3.json","w")
 
 # create a dictionary that stores businessObject and its location 
 a=dict()
@@ -66,9 +67,16 @@ for k in b.keys():
 			#print x
 			#x+=1
 
-for k3 in c.keys():
-	result=(str)({k3:c[k3]})
-	f3.write(result+'\n')
+
+for d in c.keys():
+	#str_result=(str)({d:c[d]})
+	json_result=json.dumps({d:c[d]})
+	f3.write(json_result+'\n')
+
+#with open('user_location2.json','w') as outfile:
+#	json.dump(c, outfile, indent=2)
+	
+
 #print c
 
 f1.close()
